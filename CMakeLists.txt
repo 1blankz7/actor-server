@@ -76,6 +76,7 @@ INCLUDE_DIRECTORIES(. include ${CMAKE_BINARY_DIR} ${LIBCAF_INCLUDE_DIRS})
 set(SOURCES
     src/main.cpp
     src/event_switch.cpp
+    src/event.cpp
     src/web_socket_server.cpp)
 
 file(GLOB HEADERS "include/*.hpp")
