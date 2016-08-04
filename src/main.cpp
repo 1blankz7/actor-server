@@ -2,8 +2,7 @@
 #include <iostream>
 
 #include "caf/all.hpp"
-#include "event_switch.h"
-#include "web_socket_server.h"
+#include "actor_server/http_listener.hpp"
 
 using std::endl;
 using std::string;
@@ -11,9 +10,8 @@ using std::string;
 using namespace caf;
 
 int main() {
-  auto switch_actor = spawn<event_switch>();
-
-  spawn<web_socket_server>(switch_actor);
+  // spawn listener to listen on a specific port
+  auto http_listener = spawn<http_listener>();
   // wait until all other actors we have spawned are done
   await_all_actors_done();
   // run cleanup code before exiting main
